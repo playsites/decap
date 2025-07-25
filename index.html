@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Decap CMS</title>
+      <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <h1 id="titulo">Carregando...</h1>
+  <p id="descricao">Aguarde...</p>
+    <div id="alinhamento">
+          <img id="imagem" src="/img/logo.png" alt="">
+    </div>
+
+
+  <script>
+    fetch('conteudo.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('titulo').textContent = data.titulo;
+        document.getElementById('descricao').textContent = data.descricao;
+        document.getElementById('imagem').src = data.imagem;
+      });
+  </script>
+
+
+</body>
+</html>
